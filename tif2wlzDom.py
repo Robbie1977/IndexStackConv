@@ -16,7 +16,7 @@ else:
     
 for infile in glob.glob(Fpre + "0*.nrrd"):
     print 'Converting %s to %s...' % (infile, infile.replace('.nrrd','.tif'))
-    subprocess.call('%s -macro nrrd2tif.ijm %s -batch' % (Lfiji, infile), shell=True) 
+    subprocess.call('%s -macro ../scripts/nrrd2tif.ijm %s -batch' % (Lfiji, infile), shell=True) 
 
 for i in xrange(1,250):
     outfile = Fpre + str(i).zfill(4) + '_dom.wlz'
