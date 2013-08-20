@@ -1,4 +1,4 @@
-import glob, subprocess
+import glob, subprocess, sys
 
 if (len(sys.argv) < 4):
     print 'e.g. python tif2wlzDom.py DomainPrefix templateFile WoolzDir FijiExec'
@@ -15,8 +15,8 @@ else:
     Fpre = str(sys.argv[1])
     
 for infile in glob.glob(Fpre + "0*.nrrd"):
-    print 'Converting %s to %s...' % (infile, infile.replace('.nrrd','.tif')
-    subprocess.call('%s -macro nrrd2tif.ijm %s -batch' % (infile), shell=True) 
+    print 'Converting %s to %s...' % (infile, infile.replace('.nrrd','.tif'))
+    subprocess.call('%s -macro nrrd2tif.ijm %s -batch' % (Lfiji, infile), shell=True) 
 
 for i in xrange(1,250):
     outfile = Fpre + str(i).zfill(4) + '_dom.wlz'
