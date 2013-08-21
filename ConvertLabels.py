@@ -18,7 +18,7 @@ else:
     for i in xrange(0,len(new_list)):
         dc = readdata==np.uint8(old_list[i])
         tempdata[dc] = np.uint8(new_list[i])
-        print old_list[i], '->', new_list[i]
+        print old_list[i], '->', new_list[i], ' (', np.sum(dc), ')'
     
     
     if (len(sys.argv) < 5):
