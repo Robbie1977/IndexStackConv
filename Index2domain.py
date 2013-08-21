@@ -9,11 +9,11 @@ if (len(sys.argv) < 3):
 else:
      
     print 'Adding to domains', str(sys.argv[1]), '....'
-    for x in xrange(2,(len(sys.argv))):
+    for x in range(2,(len(sys.argv))):
         print 'adding data from file', sys.argv[x]
         readdata, options = nrrd.read(str(sys.argv[x]))
-        for i in xrange(1,255):
-            if i in readdata: 
+        for i in range(1,255):
+            if np.uint8(i) in readdata: 
                 print 'appending index', str(i)
                 domfile = str(sys.argv[1]) + str(i).zfill(4) + '.nrrd'
                 if os.path.exists(domfile):
