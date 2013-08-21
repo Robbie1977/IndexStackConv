@@ -14,17 +14,19 @@ else:
     old_list = sys.argv[1].replace('[','').replace(']','').split(',')
     new_list = sys.argv[2].replace('[','').replace(']','').split(',')
     
+    tempdata=readdata
     for i in xrange(0,len(new_list)):
-        readdata[readdata==int(old_list[i])] = int(new_list[i])
+        tempdata[readdata==int(old_list[i])] = int(new_list[i])
         print old_list[i], '->', new_list[i]
+    
     
     if (len(sys.argv) < 5):
         print 'saving result to', str(sys.argv[3]) 
     
-        nrrd.write(str(sys.argv[3]), readdata)
+        nrrd.write(str(sys.argv[3]), tempdata)
     else:
         print 'saving result to', str(sys.argv[4]) 
     
-        nrrd.write(str(sys.argv[4]), readdata)
+        nrrd.write(str(sys.argv[4]), tempdata)
     
 print 'Done.'
