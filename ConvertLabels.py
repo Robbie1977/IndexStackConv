@@ -14,21 +14,22 @@ else:
     old_list = sys.argv[1].replace('[','').replace(']','').split(',')
     new_list = sys.argv[2].replace('[','').replace(']','').split(',')
     
-    tempdata=readdata
-    
+    tempd = np.array(readdata)
+    sm = readdata.size
     for i in range(0,len(new_list)):
         dc = readdata==np.uint8(old_list[i])
-        tempdata[dc] = np.uint8(new_list[i])
+        tempd[dc] = np.uint8(new_list[i])
         print old_list[i], '->', new_list[i], ' (', np.sum(dc), ')'
-    
+        sm = sm - np.sum(dc)
+    print sm
     
     if (len(sys.argv) < 5):
         print 'saving result to', str(sys.argv[3]) 
     
-        nrrd.write(str(sys.argv[3]), tempdata)
+        nrrd.write(str(sys.argv[3]), tempd)
     else:
         print 'saving result to', str(sys.argv[4]) 
     
-        nrrd.write(str(sys.argv[4]), tempdata)
+        nrrd.write(str(sys.argv[4]), tempd)
     
 print 'Done.'
