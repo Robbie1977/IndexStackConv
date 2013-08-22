@@ -21,7 +21,7 @@ else:
         tempd[dc] = np.uint8(new_list[i])
         print old_list[i], '->', new_list[i], ' (', np.sum(dc), ')'
         sm = sm - np.sum(dc)
-    print sm
+    print 'Voxels not changed:', sm
     
     if (len(sys.argv) < 5):
         print 'saving result to', str(sys.argv[3]) 
