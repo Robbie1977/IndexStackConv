@@ -17,7 +17,7 @@ e.g.
 python Index2domain.py ../domains/BrainTemplate ../JFRCtempate2010.mask130819-CorIndex.nrrd
 
 Then Combine a greyscale with the domains to make a compound woolz object:
-python nrrd2wlzDom.py DomainPrefix GreyScale.nrrd /path/to/WoolzCommands/ /path/to/fijiexec
+python nrrd2wlzDom.py DomainPrefix GreyScale.wlz /path/to/WoolzCommands/ /path/to/fijiexec
 e.g.
 python nrrd2wlzDom.py ../domains/BrainTemplate ../oldTemplate000000.wlz /disk/data/VFBTools/Woolz2013Full/bin/ /disk/data/VFBTools/Fiji.145/fiji-linux64
 
