@@ -37,6 +37,8 @@ for infile in glob.glob(Fpre + "0*.tif"):
 
 print 'Compiling...'
 
+subprocess.call('find %s0*_dom.wlz -size -2b | xargs rm -f'% (Fpre), shell=True)
+
 subprocess.call('cat %s %s0*_dom.wlz | %sWlzCompound >out.wlz'% (Tfile, Fpre, wlzdir), shell=True)
 
 print 'Result saved to out.wlz'
