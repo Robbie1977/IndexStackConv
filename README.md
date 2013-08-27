@@ -21,11 +21,11 @@ python Index2domain.py ../domains/BrainTemplate ../JFRCtempate2010.mask130819-Co
 
 Then Combine a greyscale with the domains to make a compound woolz object:
 
-python nrrd2wlzDom.py DomainPrefix GreyScale.wlz /path/to/WoolzCommands/ /path/to/fijiexec
+python nrrd2wlzDom.py DomainPrefix GreyScale.wlz /path/to/WoolzCommands/ /path/to/fijiexec Zratio
 
 e.g.
 
-python nrrd2wlzDom.py ../domains/BrainTemplate ../oldTemplate/oldTemplate000000.wlz /disk/data/VFBTools/Woolz2013Full/bin/ /disk/data/VFBTools/Fiji.145/fiji-linux64
+python nrrd2wlzDom.py ../domains/BrainTemplate ../oldTemplate/oldTemplate000000.wlz /disk/data/VFBTools/Woolz2013Full/bin/ /disk/data/VFBTools/Fiji.145/fiji-linux64 1.5
 
 The compound object is saved as out.wlz in current working dir.
 
@@ -45,5 +45,5 @@ python ConvertLabels.py [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,2
 
 python Index2domain.py ../domains/BrainTemplate ../JFRCtempate2010.mask130819-CorIndex.nrrd
 
-python nrrd2wlzDom.py ../domains/BrainTemplate ../oldTemplate/oldTemplate000000.wlz /disk/data/VFBTools/Woolz2013Full/bin/ /disk/data/VFBTools/Fiji.145/fiji-linux64
+python nrrd2wlzDom.py ../domains/BrainTemplate ../oldTemplate/oldTemplate000000.wlz /disk/data/VFBTools/Woolz2013Full/bin/ /disk/data/VFBTools/Fiji.145/fiji-linux64 1.5
 
