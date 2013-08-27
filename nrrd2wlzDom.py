@@ -27,7 +27,7 @@ for i in xrange(1,250):
 for infile in glob.glob(Fpre + "0*.tif"):
     outfile = infile.replace('.tif','_dom.wlz')
     print 'Converting %s to %s...' % (infile, outfile)
-    subprocess.call('%sWlzExtFFConvert -ftif -Fwlz %s | %sWlzThreshold -v1 |%sWlzDomain >%s' % (wlzdir, infile, wlzdir, wlzdir, outfile), shell=True)
+    subprocess.call('%sWlzExtFFConvert -ftif -Fwlz %s | %sWlzThreshold -v1 |%sWlzDomain |%sWlzSetVoxelSize -x1 -y1 -z1.5 >%s' % (wlzdir, infile, wlzdir, wlzdir, wlzdir, outfile), shell=True)
     comfile = infile.replace('.tif','.txt')
     print 'Calculating centre for %s and saving to %s...' % (outfile, comfile)
     subprocess.call('%sWlzCentreOfMass -o %s %s' % (wlzdir, comfile, outfile), shell=True)
@@ -38,6 +38,8 @@ for infile in glob.glob(Fpre + "0*.tif"):
 print 'Compiling...'
 
 subprocess.call('find %s0*_dom.wlz -size -2b | xargs rm -f'% (Fpre), shell=True)
+
+subprocess.call('%sWlzSetVoxelSize -x1 -y1 -z1.5 %s >%s' % (wlzdir, Tfile, Tfile), shell=True)
 
 subprocess.call('cat %s %s0*_dom.wlz | %sWlzCompound >out.wlz'% (Tfile, Fpre, wlzdir), shell=True)
 
