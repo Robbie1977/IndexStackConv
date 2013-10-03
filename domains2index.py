@@ -12,7 +12,7 @@ else:
     for x in range(2,(len(sys.argv))):
         print 'adding data from file', sys.argv[x]
         readdata, options = nrrd.read(str(sys.argv[x]))
-        for i in range(1,255):
+        for i in np.unique(readdata[readdata>0]):
             if np.uint8(i) in readdata: 
                 print 'appending index', str(i)
                 indfile = str(sys.argv[1])
