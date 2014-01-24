@@ -7,7 +7,7 @@ if (len(sys.argv) < 3):
     print 'e.g. python CopyMetaData.py CorrectImage.nrrd DataToBeCorrected.nrrd'
 else:
 
-    print 'Checking index for ', str(sys.argv[1]), ' against the index in (', str(sys.argv[2]), ')...'
+    print 'Copying Meta data from ', str(sys.argv[1]), ' onto that of ', str(sys.argv[2]), '...'
   
     readdata, op1 = nrrd.read(str(sys.argv[2]))
     
