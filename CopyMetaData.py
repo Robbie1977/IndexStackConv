@@ -4,7 +4,7 @@ import nrrd
 
 if (len(sys.argv) < 3):
     print 'Error: missing arguments!'
-    print 'e.g. python CopyMetaData.py template.nrrd DataToBeCorrected.nrrd'
+    print 'e.g. python CopyMetaData.py CorrectImage.nrrd DataToBeCorrected.nrrd'
 else:
 
     print 'Checking index for ', str(sys.argv[1]), ' against the index in (', str(sys.argv[2]), ')...'
