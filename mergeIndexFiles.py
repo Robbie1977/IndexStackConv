@@ -11,17 +11,17 @@ else:
     print 'Adding to index', str(sys.argv[1]), '....'
     for x in range(2,(len(sys.argv))):
         print 'adding data from file', sys.argv[x]
-        readdata, options = nrrd.read(str(sys.argv[x]))
+        readdata, option = nrrd.read(str(sys.argv[x]))
         for i in np.unique(readdata[readdata>0]):
             if np.uint8(i) in readdata: 
                 print 'appending index', str(i)
                 indfile = str(sys.argv[1])
                 if os.path.exists(indfile):
-                    domain, options = nrrd.read(indfile)
+                    domain, option = nrrd.read(indfile)
                 else:
                     domain = np.zeros(readdata.shape,np.uint8)
                 domain[readdata==i]=np.uint8(i)
-                nrrd.write(indfile, domain)
+                nrrd.write(indfile, domain, options=option)
     
     
     

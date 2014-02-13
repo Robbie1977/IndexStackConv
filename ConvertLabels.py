@@ -9,7 +9,7 @@ if (len(sys.argv) < 4):
 else:
      
     print 'Changing label', str(sys.argv[1]), 'to', str(sys.argv[2]), 'for file', str(sys.argv[3]) 
-    readdata, options = nrrd.read(str(sys.argv[3]))
+    readdata, option = nrrd.read(str(sys.argv[3]))
     
     old_list = sys.argv[1].replace('[','').replace(']','').split(',')
     new_list = sys.argv[2].replace('[','').replace(']','').split(',')
@@ -26,10 +26,10 @@ else:
     if (len(sys.argv) < 5):
         print 'saving result to', str(sys.argv[3]) 
     
-        nrrd.write(str(sys.argv[3]), tempd)
+        nrrd.write(str(sys.argv[3]), tempd options=option)
     else:
         print 'saving result to', str(sys.argv[4]) 
     
-        nrrd.write(str(sys.argv[4]), tempd)
+        nrrd.write(str(sys.argv[4]), tempd, options=option)
     
 print 'Done.'
