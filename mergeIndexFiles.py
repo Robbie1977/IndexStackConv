@@ -5,7 +5,7 @@ import nrrd
 
 if (len(sys.argv) < 3):
     print 'Error: missing arguments!' 
-    print 'e.g. python domain2index.py indexfile.nrrd domainfile1.nrrd domainfileN.nrrd ...'
+    print 'e.g. python mergeIndexFiles.py indexfile.nrrd indexfile1.nrrd indexfileN.nrrd ...'
 else:
      
     print 'Adding to index', str(sys.argv[1]), '....'
