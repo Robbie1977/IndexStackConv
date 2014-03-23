@@ -1,9 +1,9 @@
 import glob, subprocess, sys
 
 if (len(sys.argv) < 4):
-    print 'e.g. python tif2wlzDom.py DomainPrefix templateFile WoolzDir FijiExec'
+    print 'e.g. python nrrd2wlzDom.py DomainPrefix templateFile WoolzDir FijiExec Zsize'
     print 'Error: missing arguments - using defaults:' 
-    print 'e.g. python tif2wlzDom.py TAGdomain flyVNCtemplate20xDaS_th.wlz /disk/data/VFBTools/Woolz2013Full/bin/ /disk/data/VFBTools/Fiji.145/fiji-linux64'
+    print 'e.g. python nrrd2wlzDom.py TAGdomain flyVNCtemplate20xDaS_th.wlz /disk/data/VFBTools/Woolz2013Full/bin/ /disk/data/VFBTools/Fiji.145/fiji-linux64'
     wlzdir = '/disk/data/VFBTools/Woolz2013Full/bin/'
     Tfile = 'flyVNCtemplate20xDaS_th.wlz'
     Fpre = 'TAGdomain'

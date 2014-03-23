@@ -26,7 +26,7 @@ else:
     if (len(sys.argv) < 5):
         print 'saving result to', str(sys.argv[3]) 
     
-        nrrd.write(str(sys.argv[3]), tempd options=option)
+        nrrd.write(str(sys.argv[3]), tempd, options=option)
     else:
         print 'saving result to', str(sys.argv[4]) 
     
