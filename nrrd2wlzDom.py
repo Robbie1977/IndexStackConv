@@ -20,21 +20,21 @@ else:
     
 for infile in glob.glob(Fpre + "0*.nrrd"):
     print 'Converting %s to %s...' % (infile, infile.replace('.nrrd','.tif'))
-    subprocess.call('%s -macro nrrd2tif.ijm %s -batch' % (Lfiji, infile), shell=True) 
+    subprocess.call('nice xvfb-run %s -macro nrrd2tif.ijm %s -batch' % (Lfiji, infile), shell=True) 
 
 for i in xrange(1,250):
     outfile = Fpre + str(i).zfill(4) + '_dom.wlz'
     print 'Creating blank %s...'% outfile
-    subprocess.call('%sWlzMakeEmpty -o%s'% (wlzdir, outfile), shell=True)
+    subprocess.call('nice %sWlzMakeEmpty -o%s'% (wlzdir, outfile), shell=True)
     
 
 for infile in glob.glob(Fpre + "0*.tif"):
     outfile = infile.replace('.tif','_dom.wlz')
     print 'Converting %s to %s...' % (infile, outfile)
-    subprocess.call('%sWlzExtFFConvert -ftif -Fwlz %s | %sWlzThreshold -v1 |%sWlzDomain |%sWlzSetVoxelSize -x%s -y%s -z%s >%s' % (wlzdir, infile, wlzdir, wlzdir, wlzdir, Vsize, Vsize, Zsize, outfile), shell=True)
+    subprocess.call('nice %sWlzExtFFConvert -ftif -Fwlz %s | %sWlzThreshold -v1 |%sWlzDomain |%sWlzSetVoxelSize -x%s -y%s -z%s >%s' % (wlzdir, infile, wlzdir, wlzdir, wlzdir, Vsize, Vsize, Zsize, outfile), shell=True)
     comfile = infile.replace('.tif','.txt')
     print 'Calculating centre for %s and saving to %s...' % (outfile, comfile)
-    subprocess.call('%sWlzCentreOfMass -o %s %s' % (wlzdir, comfile, outfile), shell=True)
+    subprocess.call('nice %sWlzCentreOfMass -o %s %s' % (wlzdir, comfile, outfile), shell=True)
     
     #print '%sWlzExtFFConvert -ftif -Fwlz %s | %sWlzDomain >%s' % (wlzdir, infile, wlzdir, outfile)
 
