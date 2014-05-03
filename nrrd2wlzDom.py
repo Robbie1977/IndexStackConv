@@ -43,7 +43,7 @@ print 'Compiling...'
 
 subprocess.call('%sWlzSetVoxelSize -x%s -y%s -z%s %s >%s_E' % (wlzdir, Vsize, Vsize, Zsize, Tfile, Tfile), shell=True)
 
-subprocess.call('find %s0*_dom.wlz -size -2b | xargs rm -f'% (Fpre), shell=True)
+#subprocess.call('find %s0*_dom.wlz -size -2b | xargs rm -f'% (Fpre), shell=True) 
 
 subprocess.call('cat %s_E %s0*_dom.wlz | %sWlzCompound >out.wlz'% (Tfile, Fpre, wlzdir), shell=True)
 
