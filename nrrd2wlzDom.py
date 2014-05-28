@@ -43,7 +43,7 @@ if (len(sys.argv) < 4):
     Lfiji = '/disk/data/VFBTools/Fiji.145/fiji-linux64'
     Zsize = str(1)
     Vsize = str(1)
-    if query_yes_no('Do you want to run with the defaults?', default='no'): break
+    if query_yes_no('Do you want to run with the defaults?', default='no'): sys.exit(0)
 else:
     Lfiji = str(sys.argv[4])
     wlzdir = str(sys.argv[3])
